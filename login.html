@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f562aaf4-5dbb-4603-a32b-6ef6c2230136/dh0w8qv-9d8ee6b2-b41a-4681-ab9b-8a227560dc75.jpg/v1/fill/w_1192,h_670,q_70,strp/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6Ii9mL2Y1NjJhYWY0LTVkYmItNDYwMy1hMzJiLTZlZjZjMjIzMDEzNi9kaDB3OHF2LTlkOGVlNmIyLWI0MWEtNDY4MS1hYjliLThhMjI3NTYwZGM3NS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.FScrpAAFnKqBVKwe2syeiOww6mfH6avq-DRHZ_uFVNw);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-box{
+
+    width:350px;
+    background:#1E1E1E;
+    color: white;
+
+    padding:40px;
+
+    border-radius:10px;
+
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.login-box h2{
+
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.login-box input{
+
+    width:100%;
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+    font-size:16px;
+}
+
+.login-box button{
+
+    width:100%;
+    padding:12px;
+
+    border:none;
+
+    background:rgb(240, 0, 0);
+    color:white;
+
+    font-size:16px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+}
+
+.login-box button:hover{
+    background:rgb(0, 0, 0);
+}
+
+.login-box p{
+
+    text-align:center;
+    margin-top:15px;
+}
+
+.login-box a{
+    color:rgb(255, 255, 255);
+    text-decoration:none;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+        <input type="email"
+               id="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+                id="password"
+               placeholder="Enter Password"
+               required>
+
+        <div class="error" id="errorMsg"></div>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p>
+        Don't have an account?
+        <a href="register.html">
+            Register
+        </a>
+    </p>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(event){
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let errorMsg = document.getElementById("errorMsg");
+
+    
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let userpatter = /^[0-9A-Za-z]{6,16}$/;
+    let passpattern = /^(?=.*?[0-9])(?=.*?[A-Za-z]).{8,32}$/;
+
+    if(!email.match(emailPattern)){
+
+        event.preventDefault();
+
+        errorMsg.innerHTML = "Please enter a valid email address.";
+
+    } else {
+
+        errorMsg.innerHTML = "";
+
+       
+
+    }
+    
+    if(!password.match(passpattern) ){
+
+        event.preventDefault();
+
+        errorMsg.innerHTML = "invalid password";
+
+    } else {
+
+        errorMsg.innerHTML = "";
+
+        alert("Login Successful!");
+
+    }
+
+
+});
+
+</script>
+
+</body>
+</html>
