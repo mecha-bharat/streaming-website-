@@ -151,13 +151,14 @@ nav div button:hover {
 }
 
 .card {
-    /* min-width: 200px;
-    height: 120px; */
+    min-width: 200px;
+    height: 120px;
     position: relative;
     flex-shrink: 0;
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .card img {
@@ -244,6 +245,48 @@ nav div button:hover {
     flex-direction: column;
     align-items: flex-start;
     /* gap: 5px; */
+}
+
+/* Navbar after scroll */
+.navbar.scrolled {
+    background-color: rgba(20, 20, 20, 0.95);
+    transition: background-color 0.3s ease;
+}
+
+/* Card overlay */
+.card {
+    position: relative;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    pointer-events: none;
+}
+
+.card-overlay.show {
+    opacity: 1;
+}
+
+.card-overlay h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.card-overlay p {
+    font-size: 12px;
+    color: #ccc;
 }
 @media(max-width: 1024px){
     .navbar{
